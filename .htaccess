@@ -1,0 +1,19 @@
+DirectoryIndex index.php
+Options -Indexes
+RewriteEngine On
+
+# Empêche l'exposition des dumps SQL, du modèle et du code contrôleur.
+RewriteRule ^(?:Model|Controleur)/ - [F,L,NC]
+RewriteRule \.(?:sql|json)$ - [F,L,NC]
+
+# Compatibilité avec les anciennes adresses HTML et les vues PHP directes.
+RewriteRule ^(?:Vue/)?(about|categories|favoris|recette|detaille)\.(?:html|php)$ index.php?page=$1 [QSA,L]
+RewriteRule ^(?:Vue/)?(?:index|accueil)\.html$ index.php?page=accueil [QSA,L]
+RewriteRule ^Vue/(login|register|profile)\.php$ index.php?page=$1 [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^(about|categories|favoris|recette|recettes|login|register|profile|logout)/?$ index.php?page=$1 [QSA,L]
+RewriteRule ^detaille/([0-9]+)/?$ index.php?page=detaille&id=$1 [QSA,L]
+RewriteRule ^ index.php?page=404 [QSA,L]

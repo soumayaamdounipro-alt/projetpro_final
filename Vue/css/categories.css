@@ -1,0 +1,360 @@
+/* Ce fichier définit l'apparence de cette partie du site : couleurs, espaces et mise en page. */
+/* ══════════════════════════════════════════ */
+/* COOK WITH SOUMI — categories.css          */
+/* Feuille de style dédiée à la page         */
+/* des catégories du site Cook With Soumi    */
+/* ══════════════════════════════════════════ */
+
+
+/* ── PAGE HERO ── */
+/* Définit la zone principale située en haut de la page */
+
+.page-hero { /* Sélectionne le conteneur principal du bandeau Hero */
+
+  min-height: 340px; /* Définit une hauteur minimale de 340 pixels */
+
+  display: flex; /* Active Flexbox pour organiser les éléments */
+
+  align-items: center; /* Centre les éléments verticalement */
+
+  justify-content: center; /* Centre les éléments horizontalement */
+
+  text-align: center; /* Centre le texte */
+
+  padding: 130px 24px 60px; /* Ajoute 130px en haut, 24px sur les côtés et 60px en bas */
+
+  background: linear-gradient(160deg, var(--cream) 60%, #FFE8CC); /* Ajoute un dégradé entre la couleur crème et une couleur pêche */
+
+  position: relative; /* Permet de positionner correctement les pseudo-éléments */
+
+  overflow: hidden; /* Cache les éléments qui dépassent de la zone Hero */
+
+}
+
+
+/* Crée une décoration circulaire lumineuse dans le Hero */
+
+.page-hero::before { /* Sélectionne le pseudo-élément placé avant le contenu du Hero */
+
+  content: ''; /* Crée le pseudo-élément */
+
+  position: absolute; /* Positionne la décoration indépendamment du contenu */
+
+  width: 500px; height: 500px; /* Définit une largeur et une hauteur de 500px */
+
+  background: radial-gradient(circle, rgba(244,123,32,.12) 0%, transparent 70%); /* Crée un dégradé radial orange légèrement transparent */
+
+  top: -100px; right: -100px; /* Positionne le cercle en haut à droite, partiellement hors de la zone */
+
+  border-radius: 50%; /* Transforme le carré en cercle */
+
+}
+
+
+/* ── TITRE DU HERO ── */
+/* Définit l'apparence du grand titre */
+
+.page-hero-title { /* Sélectionne le titre principal du Hero */
+
+  font-family: 'Playfair Display', serif; /* Utilise la police élégante Playfair Display */
+
+  font-size: clamp(36px, 5vw, 64px); /* Rend la taille responsive entre 36px et 64px */
+
+  font-weight: 900; /* Rend le texte très épais */
+
+  color: var(--brown); /* Utilise la couleur marron définie dans les variables CSS */
+
+  line-height: 1.1; /* Réduit légèrement l'espace vertical entre les lignes */
+
+  margin-bottom: 14px; /* Ajoute un espace de 14px sous le titre */
+
+}
+
+
+/* Modifie uniquement la partie du titre placée dans <em> */
+
+.page-hero-title em { /* Sélectionne l'élément <em> à l'intérieur du titre */
+
+  color: var(--orange); /* Donne la couleur orange au texte */
+
+  font-style: italic; /* Affiche le texte en italique */
+
+}
+
+
+/* Définit l'apparence de la description située sous le titre */
+
+.page-hero-desc { /* Sélectionne le paragraphe descriptif du Hero */
+
+  font-size: 17px; font-weight: 600; /* Définit la taille du texte et son épaisseur */
+
+  color: var(--muted); max-width: 480px; margin: 0 auto; /* Définit la couleur, la largeur maximale et centre le paragraphe */
+
+  line-height: 1.7; /* Définit l'espacement vertical entre les lignes */
+
+}
+
+
+/* ── SEARCH ── */
+/* Styles de la section de recherche */
+
+.search-section { /* Sélectionne la section contenant la barre de recherche */
+
+  padding: 0 80px; /* Ajoute 80px d'espace à gauche et à droite */
+
+  margin-top: -28px; /* Remonte la barre de recherche de 28px */
+
+  position: relative; /* Permet de gérer correctement la position de l'élément */
+
+  z-index: 2; /* Place la recherche au-dessus des autres éléments */
+
+}
+
+
+/* Définit le style de la barre de recherche */
+
+.search-bar { /* Sélectionne le conteneur de la recherche */
+
+  background: var(--white); /* Utilise la couleur blanche définie dans les variables */
+
+  border-radius: 50px; /* Arrondit fortement les coins pour obtenir une forme de capsule */
+
+  padding: 16px 28px; /* Ajoute un espace intérieur vertical et horizontal */
+
+  display: flex; /* Active Flexbox */
+
+  align-items: center; /* Centre verticalement l'icône et le champ */
+
+  gap: 14px; /* Ajoute 14px d'espace entre les éléments */
+
+  box-shadow: 0 8px 40px rgba(59,31,12,.10); /* Ajoute une ombre douce sous la barre */
+
+  max-width: 640px; /* Limite la largeur maximale à 640px */
+
+  margin: 0 auto; /* Centre horizontalement la barre */
+
+}
+
+
+/* Définit la taille de l'icône de recherche */
+
+.search-icon { font-size: 20px; } /* Affiche l'icône avec une taille de 20px */
+
+
+/* Définit le style du champ de recherche */
+
+.search-bar input { /* Sélectionne le champ input situé dans la barre */
+
+  flex: 1; border: none; outline: none; /* Permet au champ de prendre l'espace disponible et supprime les bordures */
+
+  font-family: 'Nunito', sans-serif; /* Utilise la police Nunito */
+
+  font-size: 16px; font-weight: 600; /* Définit la taille et l'épaisseur du texte */
+
+  color: var(--text); /* Utilise la couleur principale du texte */
+
+  background: transparent; /* Rend le fond du champ transparent */
+
+}
+
+
+/* Définit l'apparence du texte indicatif du champ */
+
+.search-bar input::placeholder { color: var(--muted); } /* Donne une couleur discrète au placeholder */
+
+
+/* ── CATEGORIES GRID ── */
+/* Définit la mise en page de la grille des catégories */
+
+.cat-section { padding: 60px 80px 90px; } /* Ajoute des espaces autour de la section */
+
+.cat-big-grid { /* Sélectionne la grille contenant les cartes */
+
+  display: grid; /* Active CSS Grid */
+
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Crée autant de colonnes que possible avec une largeur minimale de 300px */
+
+  gap: 28px; /* Ajoute 28px d'espace entre les cartes */
+
+  margin-top: 40px; /* Ajoute un espace de 40px au-dessus de la grille */
+
+}
+
+
+/* Définit l'apparence générale de chaque carte */
+
+.cat-big-card { /* Sélectionne chaque carte de catégorie */
+
+  background: var(--white); /* Donne un fond blanc à la carte */
+
+  border-radius: 24px; /* Arrondit les coins de la carte */
+
+  overflow: hidden; /* Cache les éléments qui dépassent des coins arrondis */
+
+  text-decoration: none; /* Supprime le soulignement des liens */
+
+  display: block; /* Transforme le lien en élément de type block */
+
+  border: 2px solid transparent; /* Ajoute une bordure transparente de 2px */
+
+  box-shadow: 0 4px 20px rgba(59,31,12,.06); /* Ajoute une ombre légère */
+
+  transition: all .3s; /* Anime progressivement les changements pendant 0,3 seconde */
+
+}
+
+
+/* Définit l'effet lorsque la souris passe sur une carte */
+
+.cat-big-card:hover { /* Sélectionne une carte lorsqu'elle est survolée */
+
+  transform: translateY(-6px); /* Déplace la carte de 6px vers le haut */
+
+  border-color: var(--orange); /* Change la couleur de la bordure en orange */
+
+  box-shadow: 0 16px 48px rgba(244,123,32,.18); /* Renforce l'ombre avec une teinte orange */
+
+}
+
+
+/* Définit la zone supérieure de chaque carte */
+
+.cat-big-thumb { /* Sélectionne la partie contenant l'emoji */
+
+  height: 150px; /* Définit une hauteur de 150px */
+
+  display: flex; align-items: center; justify-content: center; /* Centre l'emoji horizontalement et verticalement */
+
+  font-size: 64px; /* Définit la taille de l'emoji */
+
+}
+
+
+/* Définit l'espace intérieur du contenu des cartes */
+
+.cat-big-body { padding: 20px 24px 24px; } /* Ajoute 20px en haut, 24px sur les côtés et 24px en bas */
+
+
+/* Définit le style du nom de la catégorie */
+
+.cat-big-name { /* Sélectionne le titre de chaque catégorie */
+
+  font-family: 'Playfair Display', serif; /* Utilise la police Playfair Display */
+
+  font-size: 22px; font-weight: 700; /* Définit la taille et l'épaisseur du titre */
+
+  color: var(--brown); margin-bottom: 8px; /* Utilise le marron et ajoute 8px sous le titre */
+
+}
+
+
+/* Définit le style de la description */
+
+.cat-big-desc { /* Sélectionne la description de chaque catégorie */
+
+  font-size: 14px; font-weight: 600; /* Définit la taille et l'épaisseur du texte */
+
+  color: var(--muted); line-height: 1.6; /* Définit la couleur et l'espacement entre les lignes */
+
+  margin-bottom: 14px; /* Ajoute 14px sous la description */
+
+}
+
+
+/* Définit le style du nombre de recettes */
+
+.cat-big-count { /* Sélectionne le compteur de recettes */
+
+  display: inline-block; /* Permet d'appliquer correctement les dimensions et le padding */
+
+  background: var(--orange-light); /* Utilise la couleur orange claire */
+
+  color: var(--orange); /* Utilise la couleur orange principale */
+
+  font-size: 12px; font-weight: 800; /* Définit la taille et l'épaisseur du texte */
+
+  padding: 4px 14px; border-radius: 50px; /* Ajoute un espace intérieur et arrondit complètement le compteur */
+
+}
+
+
+/* ── NO RESULTS ── */
+/* Styles du message affiché lorsqu'aucun résultat n'est trouvé */
+
+.cat-no-results { /* Sélectionne le conteneur du message */
+
+  text-align: center; padding: 60px 0; /* Centre le texte et ajoute 60px d'espace vertical */
+
+  font-size: 18px; font-weight: 700; color: var(--muted); /* Définit la taille, l'épaisseur et la couleur du texte */
+
+}
+
+
+/* Définit le style de l'emoji du message */
+
+.cat-no-results span { /* Sélectionne le span du message */
+
+  font-size: 48px; display: block; margin-bottom: 16px; /* Agrandit l'emoji, le place sur une ligne et ajoute un espace dessous */
+
+}
+
+
+/* ── NAV ACTIVE ── */
+/* Définit l'apparence du lien correspondant à la page actuelle */
+
+.nav-links a.active { color: var(--orange); } /* Colore le lien actif en orange */
+
+
+/* Affiche la ligne sous le lien actif */
+
+.nav-links a.active::after { transform: scaleX(1); } /* Agrandit horizontalement le pseudo-élément de soulignement */
+
+
+/* ── BURGER (mobile) ── */
+/* Définit le bouton du menu mobile */
+
+.nav-burger { /* Sélectionne le bouton hamburger */
+
+  display: none; /* Cache le bouton sur les grands écrans */
+
+  background: none; border: none; /* Supprime le fond et la bordure du bouton */
+
+  font-size: 24px; cursor: pointer; /* Définit la taille de l'icône et change le curseur en pointeur */
+
+  color: var(--brown); /* Donne au bouton la couleur marron */
+
+}
+
+
+/* ── RESPONSIVE ── */
+/* Adapte la page aux écrans dont la largeur est inférieure ou égale à 900px */
+
+@media (max-width: 900px) { /* Début des règles spécifiques aux tablettes et smartphones */
+
+  .search-section { padding: 0 24px; } /* Réduit les marges horizontales de la barre de recherche */
+
+  .cat-section { padding: 40px 24px 60px; } /* Réduit les espacements de la section des catégories */
+
+  .nav-burger { display: block; } /* Affiche le bouton hamburger sur les petits écrans */
+
+  .nav-links { /* Définit le menu de navigation mobile */
+
+    display: none; flex-direction: column; /* Cache le menu par défaut et organise ses liens verticalement */
+
+    position: absolute; top: 70px; left: 0; right: 0; /* Positionne le menu sous la barre de navigation et sur toute la largeur */
+
+    background: var(--white); padding: 20px 24px; /* Donne un fond blanc et ajoute des espacements */
+
+    box-shadow: 0 8px 24px rgba(59,31,12,.1); /* Ajoute une ombre sous le menu mobile */
+
+    gap: 16px; /* Ajoute 16px d'espace entre les liens */
+
+  }
+
+
+  /* Affiche le menu lorsque la classe "open" est ajoutée par JavaScript */
+
+  .nav-links.open { display: flex; } /* Transforme le menu caché en menu Flexbox visible */
+
+} /* Fin de la règle responsive */
+

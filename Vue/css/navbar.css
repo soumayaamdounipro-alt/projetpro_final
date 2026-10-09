@@ -1,0 +1,100 @@
+/* Ce fichier définit l'apparence de cette partie du site : couleurs, espaces et mise en page. */
+/* ── NAVBAR ── */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    background: rgba(255, 248, 242, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1.5px solid rgba(244, 123, 32, 0.15);
+    transition: box-shadow 0.3s;
+}
+
+nav.scrolled {
+    box-shadow: 0 4px 32px rgba(59, 31, 12, 0.08);
+}
+
+.nav-logo {
+    height: 78px;
+}
+
+#navTitle {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--brown);
+}
+
+#navTitle span {
+    color: var(--orange);
+}
+
+.nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--brown-mid);
+    letter-spacing: 0.3px;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: var(--orange);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: var(--orange);
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-cta {
+    background: var(--orange);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 14px;
+    text-decoration: none;
+    transition:
+        background 0.2s,
+        transform 0.15s;
+    box-shadow: 0 4px 16px rgba(244, 123, 32, 0.35);
+}
+
+.nav-cta:hover {
+    background: #d96a10;
+    transform: translateY(-1px);
+}
+
+.nav-cta::after {
+    display: none;
+}
+
+/* Rend les rubriques privées grises tant que le visiteur n'est pas connecté. */
+.nav-links .nav-bloque { color: #999; opacity: .45; cursor: not-allowed; pointer-events: none; }
