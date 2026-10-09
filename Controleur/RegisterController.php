@@ -48,6 +48,7 @@ class RegisterController
             if (empty($errors)) {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                 if ($this->model->createUser($lastName, $firstName, $email, $hashedPassword)) {
+                    $_SESSION['registration_success'] = 'Votre compte a bien été créé ! Vous pouvez maintenant vous connecter.';
                     header('Location: ' . URL . '?page=login');
                     exit;
                 } else {

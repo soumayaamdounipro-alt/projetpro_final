@@ -45,6 +45,12 @@ $pageTitle = "Connexion";
             <!-- Titre principal de la page -->
             <h1 class="auth-title">Bienvenue !</h1>
 
+            <?php if (!empty($_SESSION['registration_success'])): ?>
+                <div class="alert alert-success" role="status">
+                    <?= htmlspecialchars($_SESSION['registration_success'], ENT_QUOTES, 'UTF-8') ?>
+                </div>
+                <?php unset($_SESSION['registration_success']); ?>
+            <?php endif; ?>
             <!-- Texte d'introduction du formulaire -->
             <p class="auth-subtitle">
                 Connectez-vous à votre compte Cook With Soumi
